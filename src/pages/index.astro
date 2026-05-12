@@ -1,0 +1,480 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus — El Futuro Es Ahora</title>
+    <meta name="description" content="Plataforma de próxima generación que transforma ideas en realidades digitales." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+      <span class="logo">Nexus</span>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#plans">Planes</a></li>
+        <li><a href="#cta">Comenzar</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="section-inner" data-reveal>
+        <h1 style="margin-bottom: 1.5rem;">El Futuro<br />Es Ahora</h1>
+        <p>Plataforma de próxima generación que transforma ideas en experiencias digitales inolvidables. Velocidad, diseño y potencia en un solo lugar.</p>
+        <div class="btn-group" style="margin-top: 2.5rem;">
+          <a href="#cta" class="btn btn-primary">Comenzar gratis</a>
+          <a href="#features" class="btn btn-ghost">Explorar →</a>
+        </div>
+      </div>
+
+      <!-- Mouse scroll indicator -->
+      <div class="scroll-indicator" style="position: absolute; bottom: 2rem;">
+        <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="22" height="38" rx="11" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+          <rect class="scroll-dot" x="10" y="8" width="4" height="8" rx="2" fill="currentColor" opacity="0.8"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <section style="min-height: auto; padding: 4rem 0;">
+      <div class="marquee-wrap">
+        <div class="marquee" id="marquee">
+          <span class="marquee-item">⚡ 100x más rápido</span>
+          <span class="marquee-item">🎯 Precisión milimétrica</span>
+          <span class="marquee-item">🔒 Seguridad cuántica</span>
+          <span class="marquee-item">🌐 Escalabilidad global</span>
+          <span class="marquee-item">🤖 IA integrada</span>
+          <span class="marquee-item">⚡ 100x más rápido</span>
+          <span class="marquee-item">🎯 Precisión milimétrica</span>
+          <span class="marquee-item">🔒 Seguridad cuántica</span>
+          <span class="marquee-item">🌐 Escalabilidad global</span>
+          <span class="marquee-item">🤖 IA integrada</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="section-inner">
+        <h2 class="gradient-text" style="text-align:center; margin-bottom:1rem;" data-reveal>Todo lo que necesitas</h2>
+        <p style="text-align:center; max-width:500px; margin:0 auto 3rem;" data-reveal>Herramientas de vanguardia para construir el mañana.</p>
+        <div class="feature-grid">
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">⚡</div>
+            <h3>Velocidad Extrema</h3>
+            <p>Renderizado en el edge con latencia inferior a 50ms. Tus usuarios nunca esperarán.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🎨</div>
+            <h3>Diseño Adaptativo</h3>
+            <p>Componentes que se ven y sienten increíbles en cualquier dispositivo, siempre.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🔐</div>
+            <h3>Seguridad Zero-Trust</h3>
+            <p>Arquitectura de confianza cero con encriptación de extremo a extremo.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🤖</div>
+            <h3>IA Predictiva</h3>
+            <p>Modelos que anticipan el comportamiento del usuario y optimizan en tiempo real.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">📊</div>
+            <h3>Analytics en Vivo</h3>
+            <p>Dashboards con datos en tiempo real para tomar decisiones al instante.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-icon">🔄</div>
+            <h3>Integración Total</h3>
+            <p>Conecta con 200+ herramientas. API abierta, webhooks, y mucho más.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax quote -->
+    <section style="min-height: auto; padding: 8rem 2rem;">
+      <div class="section-inner glass-card" style="text-align:center;" data-parallax>
+        <p style="font-size: 1.5rem; font-style: italic; color: var(--text); max-width: 700px; margin: 0 auto;">
+          "La tecnología más avanzada es aquella que se siente invisible. En Nexus, hacemos magia que simplemente funciona."
+        </p>
+        <p style="margin-top: 1.5rem; color: var(--primary); font-weight: 600;">— El equipo de Nexus</p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats">
+      <div class="section-inner">
+        <h2 class="gradient-text" style="text-align:center; margin-bottom:3rem;" data-reveal>Números que hablan</h2>
+        <div class="stats-grid">
+          <div class="stat-item" data-counter data-target="99.9">
+            <div class="stat-number"><span data-counter-value>0</span>%</div>
+            <div class="stat-label">Uptime</div>
+          </div>
+          <div class="stat-item" data-counter data-target="10">
+            <div class="stat-number"><span data-counter-value>0</span>M+</div>
+            <div class="stat-label">Usuarios</div>
+          </div>
+          <div class="stat-item" data-counter data-target="150">
+            <div class="stat-number"><span data-counter-value>0</span>+</div>
+            <div class="stat-label">Países</div>
+          </div>
+          <div class="stat-item" data-counter data-target="50">
+            <div class="stat-number"><span data-counter-value>0</span>ms</div>
+            <div class="stat-label">Latencia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="plans">
+      <div class="section-inner">
+        <h2 class="gradient-text" style="text-align:center; margin-bottom:1rem;" data-reveal>Planes que escalan</h2>
+        <p style="text-align:center; max-width:500px; margin:0 auto 3rem;" data-reveal>Elige el plan perfecto para tu proyecto.</p>
+        <div class="plan-grid">
+          <div class="plan-card" data-reveal>
+            <h3>Starter</h3>
+            <div class="plan-price">$0<span>/mes</span></div>
+            <ul class="plan-features">
+              <li>Hasta 3 proyectos</li>
+              <li>1 GB almacenamiento</li>
+              <li>SSL gratuito</li>
+              <li>Soporte por email</li>
+            </ul>
+            <button class="plan-btn">Comenzar</button>
+          </div>
+          <div class="plan-card featured" data-reveal>
+            <h3>Pro</h3>
+            <div class="plan-price">$29<span>/mes</span></div>
+            <ul class="plan-features">
+              <li>Proyectos ilimitados</li>
+              <li>50 GB almacenamiento</li>
+              <li>Analytics avanzados</li>
+              <li>IA predictiva</li>
+              <li>Soporte prioritario 24/7</li>
+            </ul>
+            <button class="plan-btn primary">Probar gratis</button>
+          </div>
+          <div class="plan-card" data-reveal>
+            <h3>Enterprise</h3>
+            <div class="plan-price">$99<span>/mes</span></div>
+            <ul class="plan-features">
+              <li>Todo lo de Pro</li>
+              <li>Infraestructura dedicada</li>
+              <li>SLA 99.99%</li>
+              <li>SSO & SAML</li>
+              <li>Account manager</li>
+            </ul>
+            <button class="plan-btn">Contactar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta">
+      <div class="section-inner glass-card" style="text-align:center;" data-reveal>
+        <h2 style="margin-bottom: 1rem;">¿Listo para el <span class="gradient-text">futuro</span>?</h2>
+        <p style="max-width:500px; margin:0 auto 2rem;">Únete a más de 10 millones de creadores que ya están construyendo el mañana con Nexus.</p>
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary" style="font-size:1.1rem; padding:1.2rem 3rem;">Comenzar ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="position:relative; z-index:1; text-align:center; padding:3rem 2rem; border-top:1px solid var(--glass-border);">
+      <p style="font-size:0.85rem; color: var(--text-muted);">© 2026 Nexus. Construido con ❤️ y Astro.</p>
+    </footer>
+  </body>
+</html>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import * as THREE from 'three';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ─── THREE.JS PARTICLE BACKGROUND ──────────────────────────
+  const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 30;
+
+  // Particles
+  const particleCount = 400;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+  const sizes = new Float32Array(particleCount);
+
+  const color1 = new THREE.Color('#7c3aed');
+  const color2 = new THREE.Color('#06b6d4');
+  const color3 = new THREE.Color('#f43f5e');
+
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 60;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
+
+    const mix = Math.random();
+    const c = color1.clone().lerp(color2, mix).lerp(color3, mix * 0.5);
+    colors[i * 3] = c.r;
+    colors[i * 3 + 1] = c.g;
+    colors[i * 3 + 2] = c.b;
+
+    sizes[i] = Math.random() * 2 + 0.5;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+  const material = new THREE.PointsMaterial({
+    size: 0.1,
+    vertexColors: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+    transparent: true,
+    opacity: 0.6,
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  // Floating orbs (bigger particle clusters)
+  const orbGroup = new THREE.Group();
+  for (let j = 0; j < 3; j++) {
+    const orbGeo = new THREE.SphereGeometry(0.3, 16, 16);
+    const orbMat = new THREE.MeshBasicMaterial({
+      color: [color1, color2, color3][j],
+      transparent: true,
+      opacity: 0.3,
+    });
+    const orb = new THREE.Mesh(orbGeo, orbMat);
+    orb.position.set(
+      (Math.random() - 0.5) * 30,
+      (Math.random() - 0.5) * 20,
+      (Math.random() - 0.5) * 15
+    );
+    orb.userData = {
+      speed: {
+        x: (Math.random() - 0.5) * 0.01,
+        y: (Math.random() - 0.5) * 0.01,
+        z: (Math.random() - 0.5) * 0.01,
+      },
+    };
+    orbGroup.add(orb);
+  }
+  scene.add(orbGroup);
+
+  // Mouse interaction
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetMouseX = 0;
+  let targetMouseY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    targetMouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    targetMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  // Screen size responsive particles
+  const torusKnot = new THREE.Mesh(
+    new THREE.TorusKnotGeometry(1.5, 0.4, 64, 10),
+    new THREE.MeshBasicMaterial({
+      color: 0x7c3aed,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.08,
+    })
+  );
+  torusKnot.position.set(8, -4, -5);
+  scene.add(torusKnot);
+
+  const torusKnot2 = new THREE.Mesh(
+    new THREE.TorusKnotGeometry(2, 0.3, 48, 8),
+    new THREE.MeshBasicMaterial({
+      color: 0x06b6d4,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.06,
+    })
+  );
+  torusKnot2.position.set(-10, 5, -8);
+  scene.add(torusKnot2);
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+
+    mouseX += (targetMouseX - mouseX) * 0.02;
+    mouseY += (targetMouseY - mouseY) * 0.02;
+
+    particles.rotation.x += 0.0001;
+    particles.rotation.y += 0.00015;
+    particles.rotation.x += mouseY * 0.00008;
+    particles.rotation.y += mouseX * 0.00008;
+
+    torusKnot.rotation.x += 0.001;
+    torusKnot.rotation.y += 0.0015;
+    torusKnot2.rotation.x -= 0.0008;
+    torusKnot2.rotation.y -= 0.0012;
+
+    orbGroup.children.forEach((orb: any) => {
+      orb.position.x += orb.userData.speed.x;
+      orb.position.y += orb.userData.speed.y;
+      orb.position.z += orb.userData.speed.z;
+
+      if (Math.abs(orb.position.x) > 15) orb.userData.speed.x *= -1;
+      if (Math.abs(orb.position.y) > 10) orb.userData.speed.y *= -1;
+      if (Math.abs(orb.position.z) > 8) orb.userData.speed.z *= -1;
+    });
+
+    camera.position.x += (mouseX * 1.5 - camera.position.x) * 0.006;
+    camera.position.y += (mouseY * 1 - camera.position.y) * 0.006;
+    camera.lookAt(0, 0, 0);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // ─── GSAP SCROLL ANIMATIONS ────────────────────────────────
+  // Fade-up reveals
+  const revealElements = document.querySelectorAll('[data-reveal]');
+  revealElements.forEach((el) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 80 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.8,
+        ease: 'power2.out',
+        force3D: true,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          end: 'top 50%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
+
+  // Staggered feature cards
+  const featureCards = document.querySelectorAll('.feature-card');
+  featureCards.forEach((card, i) => {
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: i * 0.12,
+        ease: 'power2.out',
+        force3D: true,
+        scrollTrigger: {
+          trigger: '.feature-grid',
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
+
+  // Parallax for the quote card
+  gsap.to('[data-parallax]', {
+    y: -80,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '[data-parallax]',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.2,
+    },
+  });
+
+  // Count up animation
+  document.querySelectorAll('[data-counter]').forEach((counter) => {
+    const target = parseFloat(counter.getAttribute('data-target') || '0');
+    const valueEl = counter.querySelector('[data-counter-value]');
+    const isDecimal = target % 1 !== 0;
+
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 90%',
+      onEnter: () => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 3,
+          ease: 'power3.out',
+          onUpdate: () => {
+            if (valueEl) {
+              valueEl.textContent = isDecimal
+                ? obj.val.toFixed(1)
+                : Math.floor(obj.val).toString();
+            }
+          },
+        });
+      },
+      once: true,
+    });
+  });
+
+  // Active nav link based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  sections.forEach((section) => {
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 40%',
+      end: 'bottom 40%',
+      onEnter: () => setActiveNav(section.id),
+      onEnterBack: () => setActiveNav(section.id),
+    });
+  });
+
+  function setActiveNav(id: string) {
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+  }
+
+  // Scroll dot animation
+  gsap.to('.scroll-dot', {
+    y: 14,
+    duration: 2.5,
+    repeat: -1,
+    yoyo: true,
+    ease: 'power3.inOut',
+  });
+</script>
