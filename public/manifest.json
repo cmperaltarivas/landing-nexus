@@ -1,0 +1,20 @@
+{
+  "name": "Nexus — El Futuro Es Ahora",
+  "short_name": "Nexus",
+  "description": "Plataforma de próxima generación que transforma ideas en experiencias digitales inolvidables.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

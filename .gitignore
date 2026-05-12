@@ -1,6 +1,6 @@
 node_modules/
 dist/
-.cache/
 .astro/
 *.log
 .env
+.DS_Store

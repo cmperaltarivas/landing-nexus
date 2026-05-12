@@ -1,22 +1,18 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nexus — El Futuro Es Ahora</title>
-    <meta name="description" content="Plataforma de próxima generación que transforma ideas en realidades digitales." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+<BaseLayout
+  title="Nexus — El Futuro Es Ahora"
+  description="Plataforma de próxima generación que transforma ideas en experiencias digitales inolvidables. Velocidad, diseño y potencia en un solo lugar."
+>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-    <nav class="navbar">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
       <span class="logo">Nexus</span>
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
@@ -25,6 +21,9 @@ import '../styles/global.css';
         <li><a href="#cta">Comenzar</a></li>
       </ul>
     </nav>
+  </header>
+
+  <main id="main-content">
 
     <!-- Hero -->
     <section class="hero">
@@ -196,11 +195,12 @@ import '../styles/global.css';
     </section>
 
     <!-- Footer -->
-    <footer style="position:relative; z-index:1; text-align:center; padding:3rem 2rem; border-top:1px solid var(--glass-border);">
-      <p style="font-size:0.85rem; color: var(--text-muted);">© 2026 Nexus. Construido con ❤️ y Astro.</p>
+    <footer role="contentinfo" style="position:relative; z-index:1; text-align:center; padding:3rem 2rem; border-top:1px solid var(--glass-border);">
+      <p style="font-size:0.85rem; color: var(--text-muted);">© 2026 Nexus.</p>
     </footer>
-  </body>
-</html>
+
+  </main>
+</BaseLayout>
 
 <script>
   import gsap from 'gsap';
@@ -209,7 +209,14 @@ import '../styles/global.css';
 
   gsap.registerPlugin(ScrollTrigger);
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ─── THREE.JS PARTICLE BACKGROUND ──────────────────────────
+  if (prefersReducedMotion) {
+    const bgCanvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
+    if (bgCanvas) bgCanvas.style.display = 'none';
+  } else {
+
   const canvas = document.getElementById('bg-canvas') as HTMLCanvasElement;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
@@ -364,92 +371,117 @@ import '../styles/global.css';
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
+  } // end prefersReducedMotion guard for Three.js
+
   // ─── GSAP SCROLL ANIMATIONS ────────────────────────────────
-  // Fade-up reveals
-  const revealElements = document.querySelectorAll('[data-reveal]');
-  revealElements.forEach((el) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 80 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.8,
-        ease: 'power2.out',
-        force3D: true,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          end: 'top 50%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
-  });
-
-  // Staggered feature cards
-  const featureCards = document.querySelectorAll('.feature-card');
-  featureCards.forEach((card, i) => {
-    gsap.fromTo(
-      card,
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: i * 0.12,
-        ease: 'power2.out',
-        force3D: true,
-        scrollTrigger: {
-          trigger: '.feature-grid',
-          start: 'top 85%',
-          toggleActions: 'play none none reverse',
-        },
-      }
-    );
-  });
-
-  // Parallax for the quote card
-  gsap.to('[data-parallax]', {
-    y: -80,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '[data-parallax]',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: 1.2,
-    },
-  });
-
-  // Count up animation
-  document.querySelectorAll('[data-counter]').forEach((counter) => {
-    const target = parseFloat(counter.getAttribute('data-target') || '0');
-    const valueEl = counter.querySelector('[data-counter-value]');
-    const isDecimal = target % 1 !== 0;
-
-    ScrollTrigger.create({
-      trigger: counter,
-      start: 'top 90%',
-      onEnter: () => {
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          duration: 3,
-          ease: 'power3.out',
-          onUpdate: () => {
-            if (valueEl) {
-              valueEl.textContent = isDecimal
-                ? obj.val.toFixed(1)
-                : Math.floor(obj.val).toString();
-            }
+  if (!prefersReducedMotion) {
+    // Fade-up reveals
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    revealElements.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.8,
+          ease: 'power2.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            end: 'top 50%',
+            toggleActions: 'play none none reverse',
           },
-        });
-      },
-      once: true,
+        }
+      );
     });
-  });
 
-  // Active nav link based on scroll position
+    // Staggered feature cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, i) => {
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: i * 0.12,
+          ease: 'power2.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: '.feature-grid',
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    });
+
+    // Parallax for the quote card
+    gsap.to('[data-parallax]', {
+      y: -80,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '[data-parallax]',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.2,
+      },
+    });
+
+    // Count up animation
+    document.querySelectorAll('[data-counter]').forEach((counter) => {
+      const target = parseFloat(counter.getAttribute('data-target') || '0');
+      const valueEl = counter.querySelector('[data-counter-value]');
+      const isDecimal = target % 1 !== 0;
+
+      ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 90%',
+        onEnter: () => {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: target,
+            duration: 3,
+            ease: 'power3.out',
+            onUpdate: () => {
+              if (valueEl) {
+                valueEl.textContent = isDecimal
+                  ? obj.val.toFixed(1)
+                  : Math.floor(obj.val).toString();
+              }
+            },
+          });
+        },
+        once: true,
+      });
+    });
+
+    // Scroll dot animation
+    gsap.to('.scroll-dot', {
+      y: 14,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power3.inOut',
+    });
+  } else {
+    // Show content instantly when reduced motion is preferred
+    document.querySelectorAll('[data-reveal], .feature-card').forEach((el) => {
+      (el as HTMLElement).style.opacity = '1';
+      (el as HTMLElement).style.transform = 'none';
+    });
+    document.querySelectorAll('[data-counter-value]').forEach((el) => {
+      const parent = el.closest('[data-counter]');
+      if (parent) {
+        el.textContent = parent.getAttribute('data-target') || '0';
+      }
+    });
+  }
+
+  // Active nav link based on scroll position (always works, no animation)
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -468,13 +500,4 @@ import '../styles/global.css';
       link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
     });
   }
-
-  // Scroll dot animation
-  gsap.to('.scroll-dot', {
-    y: 14,
-    duration: 2.5,
-    repeat: -1,
-    yoyo: true,
-    ease: 'power3.inOut',
-  });
 </script>
